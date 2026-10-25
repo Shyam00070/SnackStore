@@ -1,0 +1,339 @@
+
+@import "tailwindcss";
+
+/* =========================
+   SnackStop Scrollbar
+========================= */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFF8EF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D9863E;
+  border-radius: 10px;
+  border: 2px solid #FFF8EF;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C62828;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #D9863E #FFF8EF;
+  box-sizing: border-box;
+}
+
+/* =========================
+   Global Layout
+========================= */
+
+html {
+  width: 100%;
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+}
+
+/* =========================
+   SnackStop Navbar
+========================= */
+
+nav {
+  position: relative;
+  z-index: 50;
+  width: 100%;
+  max-width: 100%;
+  background: #FFF8EF;
+  color: #321C16;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+nav > div:first-child {
+  min-width: 0;
+}
+
+nav button {
+  color: #321C16;
+  cursor: pointer;
+}
+
+nav button:focus-visible,
+nav a:focus-visible {
+  outline: 2px solid #C62828;
+  outline-offset: 3px;
+}
+
+/* Mobile dropdown */
+nav > div.absolute {
+  background: #FFF8EF;
+  border-color: #E8DCCB;
+}
+
+/* =========================
+   Hero Carousel
+========================= */
+
+.hero-carousel {
+  position: relative;
+  width: 100%;
+  min-height: 670px;
+  overflow: hidden;
+  background: linear-gradient(
+    110deg,
+    #D9863E,
+    #F4B66F,
+    #F8C17D
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-product-image {
+  display: block;
+  width: min(82%, 1100px);
+  height: 500px;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 50%;
+  background: #FFF8EF;
+  color: #321C16;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: transform 0.2s ease;
+}
+
+.hero-arrow:hover {
+  transform: translateY(-50%) scale(1.06);
+}
+
+.hero-arrow:focus-visible {
+  outline: 2px solid #C62828;
+  outline-offset: 3px;
+}
+
+.hero-arrow-left {
+  left: 24px;
+}
+
+.hero-arrow-right {
+  right: 24px;
+}
+
+/* =========================
+   Carousel Dots
+========================= */
+
+.hero-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.hero-dot {
+  width: 10px;
+  height: 10px;
+  flex: 0 0 auto;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: #FFF0D8;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.hero-dot.active {
+  background: #C62828;
+  transform: scale(1.2);
+}
+
+/* =========================
+   Small Desktop / Laptop
+========================= */
+
+@media (max-width: 1200px) {
+  .hero-carousel {
+    min-height: 540px;
+  }
+
+  .hero-product-image {
+    width: 86%;
+    height: 460px;
+  }
+}
+
+/* =========================
+   Tablet
+========================= */
+
+@media (max-width: 900px) {
+  .hero-carousel {
+    min-height: 460px;
+  }
+
+  .hero-product-image {
+    width: 88%;
+    height: 400px;
+  }
+
+  .hero-arrow {
+    width: 42px;
+    height: 42px;
+  }
+
+  .hero-arrow-left {
+    left: 16px;
+  }
+
+  .hero-arrow-right {
+    right: 16px;
+  }
+
+  .hero-dots {
+    bottom: 20px;
+  }
+}
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 640px) {
+  .hero-carousel {
+    min-height: 380px;
+    padding: 16px 0 40px;
+  }
+
+  .hero-product-image {
+    width: 100%;
+    height: 320px;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .hero-arrow {
+    width: 36px;
+    height: 36px;
+  }
+
+  .hero-arrow-left {
+    left: 8px;
+  }
+
+  .hero-arrow-right {
+    right: 8px;
+  }
+
+  .hero-dots {
+    bottom: 16px;
+    gap: 10px;
+  }
+
+  .hero-dot {
+    width: 9px;
+    height: 9px;
+  }
+}
+
+/* =========================
+   Small Mobile
+========================= */
+
+@media (max-width: 380px) {
+  .hero-carousel {
+    min-height: 320px;
+    padding-bottom: 36px;
+  }
+
+  .hero-product-image {
+    width: 100%;
+    height: 270px;
+  }
+
+  .hero-arrow {
+    width: 32px;
+    height: 32px;
+  }
+
+  .hero-arrow-left {
+    left: 5px;
+  }
+
+  .hero-arrow-right {
+    right: 5px;
+  }
+
+  .hero-dots {
+    bottom: 12px;
+    gap: 9px;
+  }
+
+  nav > div:first-child {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+/* View Product Button */
+.view-product-btn {
+  position: absolute;
+  left: 50%;
+  bottom: 44px;
+  transform: translateX(-50%);
+  background: #FFF8EF;
+  color: #321C16;
+  border: 1px solid #E8DCCB;
+  border-radius: 30px;
+  padding: 12px 28px;
+  font-family: serif;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.2s ease, color 0.2s ease;
+
+}
+
+.view-product-btn:hover {
+  background: #C62828;
+  color: #FFF8EF;
+}
+
+@media (max-width: 640px) {
+  .view-product-btn {
+    bottom: 8px;
+    padding: 10px 22px;
+    font-size: 14px;
+  }
+}
